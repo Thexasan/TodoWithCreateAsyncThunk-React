@@ -1,0 +1,57 @@
+/* From uiverse.io by @Ali-Tahmazi99 */
+.btnadd {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #03045e;
+    position: relative;
+    overflow: hidden;
+    -webkit-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+   }
+   
+   .btnadd::before,
+   .btnadd::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    -webkit-transform: skew(15deg);
+        -ms-transform: skew(15deg);
+            transform: skew(15deg);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+   }
+   
+   .btnadd::before {
+    left: -10px;
+    background: #240046;
+   }
+   
+   .btnadd::after {
+    right: -10px;
+    background: #6417b1;
+   }
+   
+   .btnadd:hover::before,
+   .btnadd:hover::after {
+    width: 58%;
+   }
+   
+   .btnadd:hover .spanadd {
+    color: #e0aaff;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+   }
+   
+   .btnadd .spanadd {
+    color: #03045e;
+    font-size: 18px;
+    -webkit-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
+   }
