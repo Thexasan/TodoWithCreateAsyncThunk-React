@@ -27,13 +27,14 @@ const App = () => {
 
   const [open, setOpen] = React.useState(false);
   const [edited, setEdited] = React.useState("");
+  const [idx,setIdx] = React.useState(null)
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleClickOpen = (todo) => {
     setEdited(todo.title)
     setOpen(true);
-    console.log(setEdited(todo.title));
+    setIdx(todo.id)
   };
 
   const handleClose = () => {
@@ -118,7 +119,7 @@ const App = () => {
             placeholder="title.."
             value={edited}
             onChange={(e) =>{
-              dispatch(handleChange(e.target.value))
+              setEdited(e.target.value)
             }}
           />
         </DialogContent>
@@ -128,7 +129,7 @@ const App = () => {
           </Button>
           <Button
             onClick={() => {
-              dispatch(editTodo({ id: todo.id, title: title }));
+              dispatch(editTodo({ id: idx, title: edited }));
               handleClose();
             }}
             autoFocus
