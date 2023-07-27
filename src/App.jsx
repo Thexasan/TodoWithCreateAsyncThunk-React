@@ -31,7 +31,7 @@ const App = () => {
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleClickOpen = (todo) => {
-    setEdited(todo.title);
+    setEdited(todo.title)
     setOpen(true);
     console.log(setEdited(todo.title));
   };
@@ -101,7 +101,7 @@ const App = () => {
 
             <Button
               variant="outlined"
-              onClick={handleClickOpen}
+              onClick={()=>handleClickOpen(todo)}
               color="secondary"
             >
               <Edit /> edit{" "}
@@ -118,7 +118,7 @@ const App = () => {
             placeholder="title.."
             value={edited}
             onChange={(e) =>{
-              setEdited(e.target.value)
+              dispatch(handleChange(e.target.value))
             }}
           />
         </DialogContent>
@@ -128,7 +128,7 @@ const App = () => {
           </Button>
           <Button
             onClick={() => {
-              dispatch(editTodo({ id: todo.id, title: edited }));
+              dispatch(editTodo({ id: todo.id, title: title }));
               handleClose();
             }}
             autoFocus
@@ -139,6 +139,10 @@ const App = () => {
       </Dialog>
           </div>
         ))}
+      </div>
+
+      <div>
+        <input type="search" className="border border-black" placeholder="search" />
       </div>
 
     </div>
